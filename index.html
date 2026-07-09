@@ -288,13 +288,11 @@
     font-family:var(--font-mono);font-weight:700;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;
     display:flex;align-items:center;justify-content:center;gap:10px;
   }
-  .flow .step:last-child{border-right:none;background:var(--blaze);}
-  .flow a.step-cta{text-decoration:none;color:var(--black);cursor:pointer;transition:background .12s ease;}
-  .flow a.step-cta:hover{background:#ff5a1f;}
-  .work-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;text-decoration:none;background:var(--blaze);border:var(--border);border-radius:var(--r);box-shadow:var(--shadow-lg);padding:28px 30px;}
-  .work-cta .cc-txt{max-width:52ch;}
-  .work-cta .cc-txt h3{font-size:1.8rem;text-transform:lowercase;color:var(--black);}
-  .work-cta .cc-txt p{font-family:var(--font-mono);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#3a1400;margin-top:8px;}
+  .flow .step:last-child{border-right:none;}
+  .work-btn{display:inline-flex;align-items:center;gap:.55em;text-decoration:none;font-family:var(--font-mono);font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;background:var(--blaze);color:var(--black);border:var(--border);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:15px 26px;transition:transform .12s ease, box-shadow .12s ease;}
+  .work-btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--black);}
+  .work-btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--black);}
+  .work-btn .arrow{font-family:var(--font-display);}
   .cat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
   .cat{background:var(--white);border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:22px;}
   .cat h4{font-size:1.25rem;text-transform:lowercase;margin-bottom:10px;}
@@ -362,7 +360,6 @@
     .deck-strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;-webkit-overflow-scrolling:touch;}
     .deck-strip .deck-card{flex:0 0 210px;scroll-snap-align:start;}
     .case-cta{flex-direction:column;align-items:flex-start;}
-    .work-cta{flex-direction:column;align-items:flex-start;}
   }
 
   @media(prefers-reduced-motion:reduce){
@@ -619,25 +616,18 @@
     <div class="sec-head reveal">
       <span class="eyebrow"><span class="num">05</span> — video, end to end</span>
       <h2>200+ videos directed.</h2>
-      <p class="lede">Data-driven, not vibes-driven — per-video retention, engagement &amp; CTR tracked across every brand.</p>
     </div>
     <div class="flow reveal" aria-label="Video production pipeline">
-      <span class="step">Calendar</span>
+      <span class="step">Plan</span>
       <span class="step">Ideate</span>
       <span class="step">Storyboard</span>
       <span class="step">Script</span>
       <span class="step">Shoot/Film</span>
       <span class="step">Direct edit</span>
       <span class="step">Caption/Copy</span>
-      <a class="step step-cta" href="work.html">My work →</a>
+      <span class="step">Analytics</span>
     </div>
-    <a class="work-cta press reveal" href="work.html">
-      <div class="cc-txt">
-        <h3>see my work →</h3>
-        <p>Event coverage · tutorials · interviews · AI video &amp; more, all playable</p>
-      </div>
-      <span class="btn btn--ink" style="pointer-events:none;">Open the work gallery <span class="arrow">→</span></span>
-    </a>
+    <a class="work-btn press reveal" href="work.html">My work <span class="arrow">→</span></a>
   </div>
 </section>
 
