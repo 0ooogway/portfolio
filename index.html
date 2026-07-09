@@ -236,19 +236,6 @@
   .case-foot .fbox .cap{font-family:var(--font-mono);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#b9b9b0;margin-top:6px;}
 
   /* ---------- case study: live materials ---------- */
-  .outcome{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:var(--white);border:var(--border);border-left:10px solid var(--blaze);border-radius:var(--r);box-shadow:var(--shadow);padding:22px 26px;}
-  .outcome .oc-k{font-family:var(--font-mono);font-weight:700;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blaze);flex:none;}
-  .outcome p{font-size:1.05rem;color:#2b2b28;flex:1 1 34ch;}
-  .outcome p b{font-family:var(--font-display);font-weight:700;color:var(--ink);}
-  .outcome .stamp{
-    flex:none;margin-left:auto;
-    font-family:var(--font-mono);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;
-    background:var(--yellow);color:var(--black);border:var(--border);border-radius:8px;box-shadow:var(--shadow-sm);
-    padding:12px 18px;transform:rotate(3deg);
-  }
-  @media(max-width:720px){
-    .outcome .stamp{margin-left:0;transform:rotate(-2deg);}
-  }
   .case-subhead{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:8px 0 -6px;}
   .case-subhead h3{font-family:var(--font-display);font-weight:700;font-size:1.5rem;text-transform:lowercase;letter-spacing:-0.02em;}
   .case-subhead .rule{flex:1;height:3px;background:var(--black);min-width:40px;}
@@ -277,13 +264,6 @@
   .deck-links a{flex:1;text-align:center;text-decoration:none;font-family:var(--font-mono);font-weight:700;font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;border:var(--border-thin);border-radius:7px;padding:8px 6px;background:var(--paper);color:var(--ink);box-shadow:2px 2px 0 var(--black);transition:transform .12s ease, box-shadow .12s ease, background .12s ease;}
   .deck-links a:hover{transform:translate(2px,2px);box-shadow:0 0 0 var(--black);background:var(--acc);}
 
-  .featured-video{display:grid;grid-template-columns:1fr 1.05fr;gap:22px;align-items:stretch;}
-  .fv-copy{background:var(--ink);color:var(--paper);border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:28px;display:flex;flex-direction:column;justify-content:center;}
-  .fv-copy h3{color:var(--white);font-size:1.6rem;text-transform:lowercase;margin-bottom:12px;}
-  .fv-copy p{color:#c7c7bf;font-size:.98rem;}
-  .fv-copy .fv-meta{font-family:var(--font-mono);font-weight:700;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blaze);margin-bottom:14px;}
-  .fv-embed{border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);background:var(--white);padding:8px;min-height:260px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-  .fv-embed .twitter-tweet{margin:0 auto !important;}
 
   .case-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;background:var(--blaze);border:var(--border);border-radius:var(--r);box-shadow:var(--shadow-lg);padding:28px 30px;}
   .case-cta .cc-txt{max-width:46ch;}
@@ -367,9 +347,6 @@
     .cat-grid{grid-template-columns:1fr;}
   }
 
-  @media(max-width:960px){
-    .featured-video{grid-template-columns:1fr;}
-  }
   @media(max-width:820px){
     .deck-strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;-webkit-overflow-scrolling:touch;}
     .deck-strip .deck-card{flex:0 0 210px;scroll-snap-align:start;}
@@ -471,7 +448,7 @@
     </div>
     <div class="stat-grid">
       <div class="stat stat--blaze press reveal"><div class="big">300K+</div><span class="cap">Followers across 7 brand accounts</span></div>
-      <div class="stat press reveal"><div class="big">12,000+</div><span class="cap">Posts published &amp; counting</span></div>
+      <div class="stat press reveal"><div class="big">5,000+</div><span class="cap">Posts published &amp; counting</span></div>
       <div class="stat press reveal"><div class="big">200+</div><span class="cap">Videos produced</span></div>
       <div class="stat stat--ink press reveal"><div class="big">74.3M</div><span class="cap">Paid ads impressions</span></div>
       <div class="stat stat--teal press reveal"><div class="big">$20K</div><span class="cap">In marketing campaign revenue. Pitched, closed &amp; delivered</span></div>
@@ -519,11 +496,6 @@
           <div class="big">208,200</div>
           <span class="cap">Total views</span>
         </div>
-      </div>
-      <div class="outcome reveal">
-        <span class="oc-k">◆ outcome</span>
-        <p><b>The 'Deception' expansion sold out on release.</b> Plenty of hands went into that launch, and our creator content was one of the pushes that helped it land.</p>
-        <span class="stamp">Sold out ✓</span>
       </div>
       <div class="deliverables">
         <div class="deliv press reveal"><span class="qty">5</span><span class="txt">Curated creator decks</span></div>
@@ -614,21 +586,6 @@
               <a href="https://x.com/tyler_YGG/status/1973732510476734563" target="_blank" rel="noopener">Video ↗</a>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="case-subhead reveal">
-        <h3>watch a guide.</h3>
-        <span class="rule" aria-hidden="true"></span>
-      </div>
-      <div class="featured-video reveal">
-        <div class="fv-copy">
-          <span class="fv-meta">video deck guide · directed by me</span>
-          <h3>special forces lemieux</h3>
-          <p>Each deck shipped with a full video guide, scripted, filmed and edited in-house. Here's the Lemieux one, playable right here. All five are on the campaign page.</p>
-        </div>
-        <div class="fv-embed">
-          <blockquote class="twitter-tweet" data-media-max-width="420"><a href="https://x.com/tyler_YGG/status/1983919591181979893">Special Forces Lemieux video deck guide</a></blockquote>
         </div>
       </div>
 
