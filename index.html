@@ -289,6 +289,12 @@
     display:flex;align-items:center;justify-content:center;gap:10px;
   }
   .flow .step:last-child{border-right:none;background:var(--blaze);}
+  .flow a.step-cta{text-decoration:none;color:var(--black);cursor:pointer;transition:background .12s ease;}
+  .flow a.step-cta:hover{background:#ff5a1f;}
+  .work-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;text-decoration:none;background:var(--blaze);border:var(--border);border-radius:var(--r);box-shadow:var(--shadow-lg);padding:28px 30px;}
+  .work-cta .cc-txt{max-width:52ch;}
+  .work-cta .cc-txt h3{font-size:1.8rem;text-transform:lowercase;color:var(--black);}
+  .work-cta .cc-txt p{font-family:var(--font-mono);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#3a1400;margin-top:8px;}
   .cat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
   .cat{background:var(--white);border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:22px;}
   .cat h4{font-size:1.25rem;text-transform:lowercase;margin-bottom:10px;}
@@ -356,6 +362,7 @@
     .deck-strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;-webkit-overflow-scrolling:touch;}
     .deck-strip .deck-card{flex:0 0 210px;scroll-snap-align:start;}
     .case-cta{flex-direction:column;align-items:flex-start;}
+    .work-cta{flex-direction:column;align-items:flex-start;}
   }
 
   @media(prefers-reduced-motion:reduce){
@@ -622,16 +629,15 @@
       <span class="step">Shoot/Film</span>
       <span class="step">Direct edit</span>
       <span class="step">Caption/Copy</span>
-      <span class="step">Post →</span>
+      <a class="step step-cta" href="work.html">My work →</a>
     </div>
-    <div class="cat-grid">
-      <div class="cat press reveal"><div class="barcode" aria-hidden="true"></div><h4>meme skits</h4><p>30+ funny / meme shorts.</p></div>
-      <div class="cat press reveal"><div class="barcode" aria-hidden="true"></div><h4>event coverage</h4><p>10+ event highlight videos.</p></div>
-      <div class="cat press reveal"><div class="barcode" aria-hidden="true"></div><h4>technical videos</h4><p>50+ game guides, crypto videos, new feature explainers, and more.</p></div>
-      <div class="cat press reveal"><div class="barcode" aria-hidden="true"></div><h4>podcast &amp; clips</h4><p>Helped production for virtual podcasts and clipping.</p></div>
-      <div class="cat press reveal"><div class="barcode" aria-hidden="true"></div><h4>ai video generation</h4><p>Experimented and published 5–10 AI-generated videos.</p></div>
-      <div class="cat press reveal"><div class="barcode" aria-hidden="true"></div><h4>scheduling</h4><p>Created, managed and owned the video socials calendar.</p></div>
-    </div>
+    <a class="work-cta press reveal" href="work.html">
+      <div class="cc-txt">
+        <h3>see my work →</h3>
+        <p>Event coverage · tutorials · interviews · AI video &amp; more, all playable</p>
+      </div>
+      <span class="btn btn--ink" style="pointer-events:none;">Open the work gallery <span class="arrow">→</span></span>
+    </a>
   </div>
 </section>
 
@@ -659,7 +665,7 @@
           <li><span class="n">01</span><span class="t">Content strategy &amp; social calendars</span></li>
           <li><span class="n">02</span><span class="t">Paid socials — X ads</span></li>
           <li><span class="n">03</span><span class="t">Community management</span></li>
-          <li><span class="n">04</span><span class="t">Brand voice × 7 accounts</span></li>
+          <li><span class="n">04</span><span class="t">Brand voice × 8 accounts</span></li>
           <li><span class="n">05</span><span class="t">Sponsorship &amp; creator campaigns</span></li>
         </ol>
       </div>

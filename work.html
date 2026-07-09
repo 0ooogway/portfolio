@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Work · Video Portfolio · Gabriel Yao</title>
+<meta name="description" content="Video work by Gabriel Yao: event highlight videos, game tutorials, interviews, AI-generated videos and the Parallel 'Deception' creator deck guides. All playable inline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F4F1;
+    --paper-2:#EAE7DF;
+    --ink:#141414;
+    --black:#000000;
+    --white:#FFFFFF;
+    --blaze:#FF4400;
+    --teal:#0FB5AE;
+    --yellow:#FFC61A;
+    --muted:#6E6E68;
+
+    --border:3px solid var(--black);
+    --border-thin:2px solid var(--black);
+    --r:10px;
+    --r-lg:16px;
+    --shadow:6px 6px 0 var(--black);
+    --shadow-sm:4px 4px 0 var(--black);
+    --shadow-lg:10px 10px 0 var(--black);
+
+    --font-display:"Space Grotesk", system-ui, "Segoe UI", Arial, sans-serif;
+    --font-body:"Inter", system-ui, "Segoe UI", Arial, sans-serif;
+    --font-mono:"Space Mono", ui-monospace, "Courier New", monospace;
+
+    --wrap:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  h1,h2,h3,h4{font-family:var(--font-display);margin:0;line-height:1.02;letter-spacing:-0.02em;font-weight:700;}
+  p{margin:0;}
+
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px;}
+
+  .eyebrow{font-family:var(--font-mono);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);display:inline-block;}
+  .eyebrow .num{color:var(--blaze);}
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:3px solid var(--blaze);outline-offset:3px;}
+
+  .btn{font-family:var(--font-mono);font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:.5em;padding:14px 22px;border:var(--border);border-radius:var(--r);background:var(--white);color:var(--ink);cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .12s ease, box-shadow .12s ease, background .12s ease;}
+  .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--black);}
+  .btn--blaze{background:var(--blaze);color:var(--black);}
+  .btn--ink{background:var(--ink);color:var(--white);}
+  .btn .arrow{font-family:var(--font-display);}
+
+  /* ---------- nav ---------- */
+  header.nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:var(--border);}
+  .nav-inner{max-width:var(--wrap);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .logo .mono-mark{width:42px;height:42px;flex:none;display:grid;place-items:center;background:var(--blaze);border:var(--border);border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--black);box-shadow:var(--shadow-sm);}
+  nav.links{display:flex;align-items:center;gap:22px;margin-left:auto;}
+  nav.links a{font-family:var(--font-mono);font-size:.76rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:4px 0;border-bottom:2px solid transparent;white-space:nowrap;}
+  nav.links a:hover{border-bottom-color:var(--blaze);}
+  .back-link{font-family:var(--font-mono);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink);border:var(--border-thin);border-radius:8px;padding:8px 14px;background:var(--white);box-shadow:2px 2px 0 var(--black);transition:transform .12s ease, box-shadow .12s ease;white-space:nowrap;}
+  .back-link:hover{transform:translate(2px,2px);box-shadow:0 0 0 var(--black);}
+
+  /* ---------- hero ---------- */
+  .whero{padding:60px 0 42px;border-bottom:var(--border);}
+  .whero .kick{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
+  .pill{font-family:var(--font-mono);font-weight:700;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border:var(--border-thin);border-radius:999px;background:var(--white);}
+  .pill.blaze{background:var(--blaze);}
+  .whero h1{font-size:clamp(2.6rem,8vw,5.4rem);text-transform:lowercase;letter-spacing:-0.03em;line-height:.95;}
+  .whero h1 .accent{color:var(--blaze);}
+  .whero .lede{max-width:60ch;margin-top:18px;font-size:1.08rem;color:#2b2b28;}
+
+  /* ---------- category sections ---------- */
+  section.band{padding:70px 0;border-bottom:var(--border);background:var(--paper);}
+  section.band:nth-of-type(even){background:var(--paper-2);}
+  .sec-head{margin-bottom:34px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sec-head h2{font-size:clamp(1.8rem,4.5vw,2.8rem);text-transform:lowercase;}
+  .sec-head .rule{flex:1;height:3px;background:var(--black);min-width:40px;}
+  .sec-head .count{font-family:var(--font-mono);font-weight:700;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--black);background:var(--yellow);border:var(--border-thin);border-radius:999px;padding:5px 12px;}
+
+  .vid-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+  .vid{--acc:var(--blaze);background:var(--white);border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;}
+  .vid .vhead{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:var(--border);background:var(--acc);}
+  .vid .vhead .vt{font-family:var(--font-display);font-weight:700;font-size:1rem;line-height:1.05;}
+  .vid .vembed{padding:8px;display:flex;justify-content:center;background:var(--paper-2);flex:1;min-height:300px;}
+  .vid .vembed .twitter-tweet{margin:0 auto !important;}
+  .vid .vfoot{padding:10px 16px;border-top:var(--border-thin);}
+  .vid .vfoot a{font-family:var(--font-mono);font-weight:700;font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:2px solid var(--acc);padding-bottom:2px;}
+
+  /* ---------- CTA ---------- */
+  .cta{background:var(--ink);color:var(--paper);padding:80px 0;}
+  .cta h2{font-size:clamp(2rem,6vw,4rem);text-transform:lowercase;line-height:.98;}
+  .cta h2 .accent{color:var(--blaze);}
+  .cta .note{font-family:var(--font-mono);font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#b9b9b0;margin-top:20px;}
+  .cta-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:960px){
+    nav.links{display:none;}
+    .vid-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media(max-width:660px){
+    section.band{padding:52px 0;}
+    .vid-grid{grid-template-columns:1fr;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;}
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body id="top">
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html" aria-label="Gabriel Yao — home">
+      <span class="mono-mark">GY</span>
+    </a>
+    <nav class="links">
+      <a href="#events">Events</a>
+      <a href="#tutorials">Tutorials</a>
+      <a href="#interviews">Interviews</a>
+      <a href="#ai">AI video</a>
+      <a href="#deception">Deception</a>
+    </nav>
+    <a class="back-link" href="index.html#video">← Portfolio</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="whero">
+  <div class="wrap">
+    <div class="kick">
+      <span class="pill blaze">My work</span>
+      <span class="pill">200+ videos directed</span>
+      <span class="pill">All playable inline</span>
+    </div>
+    <h1>the <span class="accent">work.</span></h1>
+    <p class="lede">A selection of the video work I directed and produced across the brands I managed. Event coverage, game tutorials, interviews, AI generated pieces and the Parallel 'Deception' creator deck guides. Everything below plays right on the page.</p>
+  </div>
+</section>
+
+<!-- ============ EVENT HIGHLIGHTS ============ -->
+<section class="band" id="events">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="num">01</span> — event coverage</span>
+      <h2>event highlight videos.</h2>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="count">6 videos</span>
+    </div>
+    <div class="vid-grid">
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">YGG Play Summit 2025</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/YggEsports/status/1995749774826393816">YGG Play Summit 2025 highlight video</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/YggEsports/status/1995749774826393816" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">Token2049</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/YggEsports/status/1977645484853596551">Token2049 highlight video</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/YggEsports/status/1977645484853596551" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">GCB Party · Korea Blockchain Week</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/YggEsports/status/1971197554164630025">GCB Party at Korea Blockchain Week</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/YggEsports/status/1971197554164630025" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">LOL Land Party · Korea Blockchain Week</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/LOLLandGame/status/1972466354398613597">LOL Land Party at Korea Blockchain Week</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/LOLLandGame/status/1972466354398613597" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">Parallel World Championship 2025</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/YggEsports/status/1900135415824478392">Parallel World Championship 2025</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/YggEsports/status/1900135415824478392" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">Axie Infinity Guild Wars 2024</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/YggEsports/status/1808772743737061846">Axie Infinity Guild Wars 2024</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/YggEsports/status/1808772743737061846" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GAME TUTORIALS ============ -->
+<section class="band" id="tutorials">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="num">02</span> — tutorials &amp; guides</span>
+      <h2>game tutorial videos.</h2>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="count">4 videos</span>
+    </div>
+    <div class="vid-grid">
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">Waifu Sweeper · Full Tutorial</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/waifusweeper/status/2064256186309087263">Waifu Sweeper full tutorial</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/waifusweeper/status/2064256186309087263" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">Ragnarok Breaker · Tips</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/RagnarokBreaker/status/2069314511988040021">Ragnarok Breaker tips</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/RagnarokBreaker/status/2069314511988040021" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">Ragnarok Breaker · Tips</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/RagnarokBreaker/status/2067517672686805230">Ragnarok Breaker tips</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/RagnarokBreaker/status/2067517672686805230" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">Creator Deck Breakdown</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/YggEsports/status/1975546652510314996">Creator Deck breakdown</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/YggEsports/status/1975546652510314996" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERVIEWS ============ -->
+<section class="band" id="interviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="num">03</span> — interviews</span>
+      <h2>interviews.</h2>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="count">2 videos</span>
+    </div>
+    <div class="vid-grid">
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">Interview · One</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/YggEsports/status/1929806235764736143">Interview one</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/YggEsports/status/1929806235764736143" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">Interview · Two</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/YggEsports/status/1899149290066579701">Interview two</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/YggEsports/status/1899149290066579701" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI VIDEO ============ -->
+<section class="band" id="ai">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="num">04</span> — generative</span>
+      <h2>ai-generated videos.</h2>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="count">2 videos</span>
+    </div>
+    <div class="vid-grid">
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">AI Video · Example 1</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/waifusweeper/status/2057522685983211701">AI-generated video example 1</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/waifusweeper/status/2057522685983211701" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal">
+        <div class="vhead"><span class="vt">AI Video · Example 2</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/waifusweeper/status/2055363462180569565">AI-generated video example 2</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/waifusweeper/status/2055363462180569565" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DECEPTION CAMPAIGN ============ -->
+<section class="band" id="deception">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="num">05</span> — parallel tcg</span>
+      <h2>'deception' campaign videos.</h2>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="count">5 videos</span>
+    </div>
+    <div class="vid-grid">
+      <div class="vid reveal" style="--acc:#ff3b3b;">
+        <div class="vhead"><span class="vt">Special Forces Lemieux</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/tyler_YGG/status/1983919591181979893">Special Forces Lemieux video guide</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/tyler_YGG/status/1983919591181979893" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal" style="--acc:#22a7ff;">
+        <div class="vhead"><span class="vt">Mad Scientist Aetio</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/tyler_YGG/status/1978816606248575398">Mad Scientist Aetio video guide</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/tyler_YGG/status/1978816606248575398" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal" style="--acc:var(--blaze);">
+        <div class="vhead"><span class="vt">The Hidden Swarm Arak</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/tyler_YGG/status/1980971934524305912">The Hidden Swarm Arak video guide</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/tyler_YGG/status/1980971934524305912" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal" style="--acc:#9b5cff;">
+        <div class="vhead"><span class="vt">Beyond the Void Brand</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/tyler_YGG/status/1973732510476734563">Beyond the Void Brand video guide</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/tyler_YGG/status/1973732510476734563" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+      <div class="vid reveal" style="--acc:#35c46b;">
+        <div class="vhead"><span class="vt">Mobilized Rampage Gaffar</span></div>
+        <div class="vembed"><blockquote class="twitter-tweet" data-media-max-width="480"><a href="https://x.com/tyler_YGG/status/1974449871760626045">Mobilized Rampage Gaffar video guide</a></blockquote></div>
+        <div class="vfoot"><a href="https://x.com/tyler_YGG/status/1974449871760626045" target="_blank" rel="noopener">Watch on X ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="wrap">
+    <div class="reveal">
+      <h2>want to see more<span class="accent">?</span></h2>
+      <p class="note">Social media &amp; marketing for web3, gaming &amp; esports · Gabriel Yao.</p>
+      <div class="cta-actions">
+        <a class="btn btn--blaze" href="index.html#contact">Get in touch <span class="arrow">→</span></a>
+        <a class="btn" href="index.html#video">← Back to portfolio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // scroll reveal
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if(reduce || !('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.05, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>

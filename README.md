@@ -8,7 +8,8 @@ Personal portfolio site. Static HTML, no build step.
 .
 ├── index.html        Main portfolio page
 ├── campaign.html     Full case study: the $20K Parallel TCG "Deception" campaign
-└── assets/           All images used by both pages
+├── work.html         Video work gallery (event coverage, tutorials, interviews, AI video, Deception guides)
+└── assets/           All images used by the pages
     ├── launch-party.jpg
     ├── onepager-*.jpg     Full-size one-pager guides (used in campaign.html + lightbox)
     └── thumb-*.jpg        Compressed thumbnails (used in the deck strip on index.html)
