@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The $20,000 Campaign · Parallel TCG 'Deception' · Gabriel Yao</title>
+<meta name="description" content="Full case study of the US$20K sponsored 'Deception' launch campaign for Parallel TCG: five creator decks, one-pager guides, Medium articles, video guides and a launch party. Pitched, closed and delivered end to end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F4F1;
+    --paper-2:#EAE7DF;
+    --ink:#141414;
+    --black:#000000;
+    --white:#FFFFFF;
+    --blaze:#FF4400;
+    --teal:#0FB5AE;
+    --yellow:#FFC61A;
+    --muted:#6E6E68;
+
+    --border:3px solid var(--black);
+    --border-thin:2px solid var(--black);
+    --r:10px;
+    --r-lg:16px;
+    --shadow:6px 6px 0 var(--black);
+    --shadow-sm:4px 4px 0 var(--black);
+    --shadow-lg:10px 10px 0 var(--black);
+
+    --font-display:"Space Grotesk", system-ui, "Segoe UI", Arial, sans-serif;
+    --font-body:"Inter", system-ui, "Segoe UI", Arial, sans-serif;
+    --font-mono:"Space Mono", ui-monospace, "Courier New", monospace;
+
+    --wrap:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  h1,h2,h3,h4{font-family:var(--font-display);margin:0;line-height:1.02;letter-spacing:-0.02em;font-weight:700;}
+  p{margin:0;}
+
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px;}
+
+  .eyebrow{font-family:var(--font-mono);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);display:inline-block;}
+  .eyebrow .num{color:var(--blaze);}
+  .label{font-family:var(--font-mono);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:3px solid var(--blaze);outline-offset:3px;}
+
+  .press{transition:transform .12s ease, box-shadow .12s ease;}
+  .press:hover{transform:translate(3px,3px);box-shadow:var(--shadow-sm);}
+  .press:active{transform:translate(6px,6px);box-shadow:0 0 0 var(--black);}
+
+  .btn{
+    font-family:var(--font-mono);font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+    text-decoration:none;display:inline-flex;align-items:center;gap:.5em;padding:14px 22px;
+    border:var(--border);border-radius:var(--r);background:var(--white);color:var(--ink);cursor:pointer;
+    box-shadow:var(--shadow-sm);transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--black);}
+  .btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--black);}
+  .btn--blaze{background:var(--blaze);color:var(--black);}
+  .btn--ink{background:var(--ink);color:var(--white);}
+  .btn .arrow{font-family:var(--font-display);}
+
+  /* ---------- nav ---------- */
+  header.nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:var(--border);}
+  .nav-inner{max-width:var(--wrap);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .logo .mono-mark{width:42px;height:42px;flex:none;display:grid;place-items:center;background:var(--blaze);border:var(--border);border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--black);box-shadow:var(--shadow-sm);}
+  nav.links{display:flex;align-items:center;gap:24px;margin-left:auto;}
+  nav.links a{font-family:var(--font-mono);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:4px 0;border-bottom:2px solid transparent;}
+  nav.links a:hover{border-bottom-color:var(--blaze);}
+  .back-link{font-family:var(--font-mono);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink);border:var(--border-thin);border-radius:8px;padding:8px 14px;background:var(--white);box-shadow:2px 2px 0 var(--black);transition:transform .12s ease, box-shadow .12s ease;}
+  .back-link:hover{transform:translate(2px,2px);box-shadow:0 0 0 var(--black);}
+
+  /* ---------- hero ---------- */
+  .chero{padding:64px 0 46px;border-bottom:var(--border);}
+  .chero .kick{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
+  .pill{font-family:var(--font-mono);font-weight:700;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border:var(--border-thin);border-radius:999px;background:var(--white);}
+  .pill.blaze{background:var(--blaze);}
+  .pill.yellow{background:var(--yellow);}
+  .chero h1{font-size:clamp(2.8rem,9vw,6.4rem);text-transform:uppercase;letter-spacing:-0.035em;line-height:.94;}
+  .chero h1 .accent{color:var(--blaze);}
+  .chero .sub{font-family:var(--font-display);font-weight:600;font-size:clamp(1.1rem,2.6vw,1.6rem);margin-top:18px;}
+  .chero .lede{max-width:64ch;margin-top:16px;font-size:1.08rem;color:#2b2b28;}
+
+  /* ---------- sections ---------- */
+  section.band{padding:76px 0;border-bottom:var(--border);background:var(--paper);}
+  section.band:nth-of-type(even){background:var(--paper-2);}
+  .sec-head{margin-bottom:40px;max-width:820px;}
+  .sec-head h2{font-size:clamp(2rem,5.5vw,3.6rem);text-transform:lowercase;margin-top:12px;}
+  .sec-head .lede{color:var(--muted);margin-top:14px;font-size:1.05rem;max-width:60ch;}
+
+  /* ---------- overview ---------- */
+  .ov-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:24px;align-items:stretch;}
+  .ov-card{background:var(--white);border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:28px;}
+  .ov-card h3{font-size:1.4rem;text-transform:lowercase;margin-bottom:12px;}
+  .ov-card p{color:#333;}
+  .ov-card + .ov-card{background:var(--ink);color:var(--paper);}
+  .ov-card.dark h3{color:var(--white);}
+  .ov-card.dark p{color:#c7c7bf;}
+  .ov-card .tagk{margin-bottom:14px;display:block;}
+
+  .campaign-banner{margin-top:24px;border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;background:var(--ink);position:relative;line-height:0;cursor:zoom-in;}
+  .campaign-banner img{width:100%;height:auto;display:block;}
+  .campaign-banner .cap-tag{position:absolute;left:0;bottom:0;line-height:1.3;font-family:var(--font-mono);font-weight:700;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;background:var(--blaze);color:var(--black);border-top:var(--border);border-right:var(--border);padding:8px 14px;}
+
+  /* ---------- numbers ---------- */
+  .stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+  .stat{padding:28px 24px;border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);background:var(--white);}
+  .stat .big{font-family:var(--font-display);font-weight:700;font-size:clamp(2.4rem,5vw,3.6rem);line-height:1;letter-spacing:-0.02em;}
+  .stat .cap{font-family:var(--font-mono);font-weight:700;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:14px;display:block;}
+  .stat--blaze{background:var(--blaze);} .stat--blaze .big{color:var(--black);} .stat--blaze .cap{color:#3a1400;}
+  .stat--teal{background:var(--teal);} .stat--teal .cap{color:#053d3b;}
+  .stat--yellow{background:var(--yellow);} .stat--yellow .cap{color:#4d3b00;}
+  .stat--ink{background:var(--ink);} .stat--ink .big{color:var(--blaze);} .stat--ink .cap{color:#b9b9b0;}
+  .outcome{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:var(--white);border:var(--border);border-left:10px solid var(--blaze);border-radius:var(--r);box-shadow:var(--shadow);padding:24px 28px;margin-top:22px;}
+  .outcome .oc-k{font-family:var(--font-mono);font-weight:700;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blaze);flex:none;}
+  .outcome p{font-size:1.05rem;color:#2b2b28;flex:1 1 34ch;}
+  .outcome p b{font-family:var(--font-display);font-weight:700;color:var(--ink);}
+  .outcome .stamp{
+    flex:none;margin-left:auto;
+    font-family:var(--font-mono);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;
+    background:var(--yellow);color:var(--black);border:var(--border);border-radius:8px;box-shadow:var(--shadow-sm);
+    padding:12px 18px;transform:rotate(3deg);
+  }
+
+  /* ---------- deliverables ---------- */
+  .deliverables{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+  .deliv{background:var(--white);border:var(--border);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:18px 20px;display:flex;gap:16px;align-items:center;}
+  .deliv .qty{font-family:var(--font-display);font-weight:700;font-size:2.1rem;line-height:1;color:var(--blaze);flex:none;min-width:1.4ch;}
+  .deliv .txt{font-family:var(--font-mono);font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);}
+
+  /* ---------- deck blocks ---------- */
+  .deck-block{--acc:var(--blaze);background:var(--white);border:var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:28px;margin-bottom:34px;}
+  .deck-block:last-child{margin-bottom:0;}
+  .deck-head{display:flex;align-items:center;gap:18px;margin-bottom:16px;}
+  .deck-idx{width:56px;height:56px;flex:none;display:grid;place-items:center;background:var(--acc);border:var(--border);border-radius:10px;box-shadow:var(--shadow-sm);font-family:var(--font-display);font-weight:700;font-size:1.5rem;color:var(--black);}
+  .deck-kicker{font-family:var(--font-mono);font-weight:700;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px;}
+  .deck-title{font-size:clamp(1.5rem,3.4vw,2.1rem);text-transform:lowercase;}
+  .deck-by{font-family:var(--font-mono);font-weight:700;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block;margin-top:4px;}
+  .deck-by b{color:var(--ink);}
+  .deck-desc{color:#333;font-size:1rem;max-width:70ch;margin-bottom:22px;padding-left:74px;}
+
+  .deck-grid{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1fr);gap:22px;align-items:start;}
+  .op-figure{margin:0;position:relative;border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;background:var(--ink);cursor:zoom-in;}
+  .op-figure .acc-bar{position:absolute;top:0;left:0;right:0;height:10px;background:var(--acc);border-bottom:var(--border-thin);z-index:2;}
+  .op-figure img{width:100%;height:auto;display:block;max-height:640px;object-fit:cover;object-position:top center;}
+  .op-figure .fade{position:absolute;left:0;right:0;bottom:40px;height:110px;background:linear-gradient(to bottom, rgba(20,20,20,0), rgba(20,20,20,.7));pointer-events:none;}
+  .op-figure figcaption{position:relative;z-index:2;font-family:var(--font-mono);font-weight:700;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--paper-2);border-top:var(--border);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+
+  .deck-side{display:flex;flex-direction:column;gap:22px;}
+  .article-card{display:block;text-decoration:none;border:var(--border);border-radius:var(--r);box-shadow:var(--shadow-sm);background:var(--paper);overflow:hidden;transition:transform .12s ease, box-shadow .12s ease;}
+  .article-card:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--black);}
+  .article-card .ac-top{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--acc);border-bottom:var(--border);}
+  .article-card .ac-top .m{width:30px;height:30px;flex:none;display:grid;place-items:center;background:var(--black);color:var(--white);border-radius:6px;font-family:var(--font-display);font-weight:700;font-size:1rem;}
+  .article-card .ac-k{font-family:var(--font-mono);font-weight:700;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--black);}
+  .article-card .ac-body{padding:18px;}
+  .article-card .ac-title{font-family:var(--font-display);font-weight:700;font-size:1.2rem;line-height:1.1;display:block;margin-bottom:8px;}
+  .article-card .ac-ex{font-size:.94rem;color:#444;display:block;margin-bottom:14px;}
+  .article-card .ac-link{font-family:var(--font-mono);font-weight:700;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);display:inline-block;border-bottom:2px solid var(--acc);padding-bottom:2px;}
+
+  .video-card{border:var(--border);border-radius:var(--r);box-shadow:var(--shadow-sm);background:var(--white);overflow:hidden;}
+  .video-card .vc-top{display:flex;align-items:center;gap:10px;padding:12px 18px;background:var(--ink);border-bottom:var(--border);}
+  .video-card .vc-k{font-family:var(--font-mono);font-weight:700;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);}
+  .video-card .vc-k b{color:var(--blaze);}
+  .video-card .vc-embed{padding:8px;display:flex;justify-content:center;min-height:220px;}
+  .video-card .twitter-tweet{margin:0 auto !important;}
+
+  /* ---------- launch party ---------- */
+  .lp-figure{margin:0 0 26px;position:relative;border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;background:var(--ink);cursor:zoom-in;line-height:0;}
+  .lp-figure img{width:100%;height:auto;display:block;}
+  .roster{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;}
+  .r-card{background:var(--white);border:var(--border-thin);border-radius:var(--r);box-shadow:2px 2px 0 var(--black);padding:14px 16px;}
+  .r-card .rn{font-family:var(--font-display);font-weight:700;font-size:1.05rem;text-transform:lowercase;}
+  .r-card .rh{font-family:var(--font-mono);font-weight:700;font-size:.66rem;letter-spacing:.04em;color:var(--blaze);margin-top:4px;display:block;}
+  .r-card.host{background:var(--ink);}
+  .r-card.host .rn{color:var(--white);}
+  .r-card.host .rh{color:var(--yellow);}
+
+  /* ---------- role / ownership ---------- */
+  .role-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+  .role-card{background:var(--white);border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:24px;}
+  .role-card .rk{font-family:var(--font-mono);font-weight:700;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blaze);display:block;margin-bottom:10px;}
+  .role-card h3{font-size:1.25rem;text-transform:lowercase;margin-bottom:8px;}
+  .role-card p{color:#333;font-size:.96rem;}
+
+  /* ---------- CTA ---------- */
+  .cta{background:var(--ink);color:var(--paper);padding:84px 0;}
+  .cta h2{font-size:clamp(2.2rem,7vw,4.6rem);text-transform:lowercase;line-height:.98;}
+  .cta h2 .accent{color:var(--blaze);}
+  .cta .note{font-family:var(--font-mono);font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#b9b9b0;margin-top:22px;max-width:56ch;line-height:1.7;}
+  .cta-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------- lightbox ---------- */
+  .lb{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(8,8,8,.92);}
+  .lb.open{display:flex;}
+  .lb img{max-width:min(94vw,900px);max-height:92vh;width:auto;height:auto;border:var(--border);border-radius:var(--r);box-shadow:var(--shadow-lg);background:var(--ink);}
+  .lb-close{position:fixed;top:18px;right:18px;font-family:var(--font-mono);font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;background:var(--blaze);color:var(--black);border:var(--border);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:10px 16px;cursor:pointer;}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:960px){
+    nav.links{display:none;}
+    .ov-grid{grid-template-columns:1fr;}
+    .deck-grid{grid-template-columns:1fr;}
+    .deck-desc{padding-left:0;}
+    .roster{grid-template-columns:repeat(3,1fr);}
+  }
+  @media(max-width:720px){
+    body{font-size:16px;}
+    section.band{padding:56px 0;}
+    .stat-grid{grid-template-columns:1fr 1fr;}
+    .deliverables{grid-template-columns:1fr;}
+    .role-grid{grid-template-columns:1fr;}
+    .roster{grid-template-columns:repeat(2,1fr);}
+    .deck-head{gap:14px;}
+    .deck-idx{width:46px;height:46px;font-size:1.2rem;}
+  }
+  @media(max-width:440px){
+    .stat-grid{grid-template-columns:1fr;}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;}
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body id="top">
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html" aria-label="Gabriel Yao — home">
+      <span class="mono-mark">GY</span>
+    </a>
+    <nav class="links">
+      <a href="#overview">Overview</a>
+      <a href="#numbers">Numbers</a>
+      <a href="#decks">Decks</a>
+      <a href="#launch">Launch</a>
+    </nav>
+    <a class="back-link" href="index.html#case">← Portfolio</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="chero">
+  <div class="wrap">
+    <div class="kick">
+      <span class="pill blaze">Case study</span>
+      <span class="pill">Parallel TCG</span>
+      <span class="pill">'Deception' expansion</span>
+      <span class="pill">Sponsored · US$20K</span>
+      <span class="pill yellow">Sold out on release</span>
+    </div>
+    <h1>The $20,000<br><span class="accent">Campaign.</span></h1>
+    <p class="sub">A sponsored expansion launch, pitched, closed and delivered end to end.</p>
+    <p class="lede">My team and I built the full creator content package for Parallel TCG's 'Deception' launch. We curated five creator decks and shipped each one with a designed one-pager, a written guide on Medium and a video guide, then capped it all off with a live launch party featuring twelve creators.</p>
+  </div>
+</section>
+
+<!-- ============ OVERVIEW ============ -->
+<section class="band" id="overview">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="num">01</span> — overview</span>
+      <h2>the brief.</h2>
+    </div>
+    <div class="ov-grid">
+      <div class="ov-card reveal">
+        <span class="eyebrow tagk"><span class="num">◆</span> campaign goal</span>
+        <h3>drive players + educate the community</h3>
+        <p>Drive player acquisition and community education for the 'Deception' expansion launch. Each deck needed to be approachable for new players while showing off the new cards. The idea was to turn a set launch into content people could actually learn from and play.</p>
+      </div>
+      <div class="ov-card dark reveal">
+        <span class="eyebrow tagk" style="color:var(--white);"><span class="num">◆</span> the approach</span>
+        <h3>one package, five decks</h3>
+        <p>We curated five archetypes with community creators and produced a complete guide package for each one: a designed one-pager, a written walkthrough and a video guide. A launch party broadcast tied it all together on release day.</p>
+      </div>
+    </div>
+    <div class="campaign-banner reveal lb-trigger" data-full="assets/launch-party.jpg" role="button" tabindex="0" aria-label="Enlarge Deception launch party graphic">
+      <img src="assets/launch-party.jpg" alt="Parallel 'Deception' Launch Party graphic with twelve creators, hosted by Feno and Iceyyy, September 30 2025" loading="lazy">
+      <span class="cap-tag">Deception launch party · Sep 30 2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUMBERS ============ -->
+<section class="band" id="numbers">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="num">02</span> — results</span>
+      <h2>the numbers.</h2>
+    </div>
+    <div class="stat-grid">
+      <div class="stat stat--blaze press reveal"><div class="big">US$20K</div><span class="cap">Campaign revenue · pitched, closed &amp; delivered</span></div>
+      <div class="stat press reveal"><div class="big">208,200</div><span class="cap">Total views across all materials</span></div>
+      <div class="stat stat--ink press reveal"><div class="big">5</div><span class="cap">Creator decks, fully packaged</span></div>
+      <div class="stat stat--teal press reveal"><div class="big">15</div><span class="cap">Guides shipped · 5 one-pagers + 5 articles + 5 videos</span></div>
+      <div class="stat stat--yellow press reveal"><div class="big">6</div><span class="cap">Card review videos</span></div>
+      <div class="stat press reveal"><div class="big">12</div><span class="cap">Creators in the launch-party broadcast</span></div>
+    </div>
+    <div class="outcome reveal">
+      <span class="oc-k">◆ outcome</span>
+      <p><b>The 'Deception' expansion sold out on release.</b> Plenty of hands went into that launch, and the creator content we built was one of the pushes that helped it land.</p>
+      <span class="stamp">Sold out ✓</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DELIVERABLES ============ -->
+<section class="band" id="deliverables">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="num">03</span> — scope</span>
+      <h2>everything we delivered.</h2>
+    </div>
+    <div class="deliverables">
+      <div class="deliv press reveal"><span class="qty">5</span><span class="txt">Curated creator decks</span></div>
+      <div class="deliv press reveal"><span class="qty">5</span><span class="txt">One-pager visual guides (designed)</span></div>
+      <div class="deliv press reveal"><span class="qty">5</span><span class="txt">Written deck guides on Medium</span></div>
+      <div class="deliv press reveal"><span class="qty">5</span><span class="txt">Video deck guides (directed)</span></div>
+      <div class="deliv press reveal"><span class="qty">6</span><span class="txt">Card review videos</span></div>
+      <div class="deliv press reveal"><span class="qty">1</span><span class="txt">Launch-party live stream + 5 clips</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE DECKS ============ -->
+<section class="band" id="decks">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="num">04</span> — the work</span>
+      <h2>the five creator decks.</h2>
+      <p class="lede">Each deck below has its one-pager (tap to enlarge), its written Medium guide, and its playable video guide.</p>
+    </div>
+
+    <!-- Lemieux -->
+    <article class="deck-block reveal" style="--acc:#ff3b3b;">
+      <div class="deck-head">
+        <span class="deck-idx">01</span>
+        <div>
+          <span class="deck-kicker">special forces</span>
+          <h2 class="deck-title">lemieux</h2>
+          <span class="deck-by">featuring <b>Sequinox</b></span>
+        </div>
+      </div>
+      <p class="deck-desc">An aggressive deck that uses strong units and Lemieux's Irregulars synergies to pressure early, clear threats efficiently, and close out games with burn effects.</p>
+      <div class="deck-grid">
+        <figure class="op-figure lb-trigger" data-full="assets/onepager-lemieux.jpg" role="button" tabindex="0" aria-label="Enlarge Special Forces Lemieux one-pager">
+          <span class="acc-bar" aria-hidden="true"></span>
+          <img src="assets/onepager-lemieux.jpg" alt="Special Forces Lemieux one-pager deck guide" loading="lazy">
+          <span class="fade" aria-hidden="true"></span><figcaption><span>One-pager visual guide</span><span>view the full guide ⤢</span></figcaption>
+        </figure>
+        <div class="deck-side">
+          <a class="article-card" href="https://medium.com/@YGGEsports/special-forces-lemieux-00246475f9e9" target="_blank" rel="noopener">
+            <div class="ac-top"><span class="m">M</span><span class="ac-k">Written guide · Medium</span></div>
+            <div class="ac-body">
+              <span class="ac-title">Special Forces Lemieux: Creator Deck Guide</span>
+              <span class="ac-ex">Full mulligan, ideal curve, Irregulars breakdown and the Fleet Support win condition, written out step by step.</span>
+              <span class="ac-link">Read the full guide on Medium ↗</span>
+            </div>
+          </a>
+          <div class="video-card">
+            <div class="vc-top"><span class="vc-k">Video guide · <b>X</b></span></div>
+            <div class="vc-embed"><blockquote class="twitter-tweet" data-media-max-width="440"><a href="https://x.com/tyler_YGG/status/1983919591181979893">Special Forces Lemieux video deck guide</a></blockquote></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Arak -->
+    <article class="deck-block reveal" style="--acc:var(--blaze);">
+      <div class="deck-head">
+        <span class="deck-idx">02</span>
+        <div>
+          <span class="deck-kicker">the hidden swarm</span>
+          <h2 class="deck-title">arak</h2>
+          <span class="deck-by">featuring <b>Zeliaser</b></span>
+        </div>
+      </div>
+      <p class="deck-desc">Play cheap Salvage Units, stack them with Upgrades and use Arak's passive to build sticky boards. Close out games with Repeater Cannon by trading efficiently and turning the pressure into heavy face damage.</p>
+      <div class="deck-grid">
+        <figure class="op-figure lb-trigger" data-full="assets/onepager-arak.jpg" role="button" tabindex="0" aria-label="Enlarge The Hidden Swarm Arak one-pager">
+          <span class="acc-bar" aria-hidden="true"></span>
+          <img src="assets/onepager-arak.jpg" alt="The Hidden Swarm Arak one-pager deck guide" loading="lazy">
+          <span class="fade" aria-hidden="true"></span><figcaption><span>One-pager visual guide</span><span>view the full guide ⤢</span></figcaption>
+        </figure>
+        <div class="deck-side">
+          <a class="article-card" href="https://medium.com/@YGGEsports/hidden-swarm-arak-creator-deck-guide-c96627011a44" target="_blank" rel="noopener">
+            <div class="ac-top"><span class="m">M</span><span class="ac-k">Written guide · Medium</span></div>
+            <div class="ac-body">
+              <span class="ac-title">The Hidden Swarm Arak: Creator Deck Guide</span>
+              <span class="ac-ex">Salvage-and-Upgrade lines, the ideal turn-one sequence, and how to pass Upgrades onto nanobots for sticky value.</span>
+              <span class="ac-link">Read the full guide on Medium ↗</span>
+            </div>
+          </a>
+          <div class="video-card">
+            <div class="vc-top"><span class="vc-k">Video guide · <b>X</b></span></div>
+            <div class="vc-embed"><blockquote class="twitter-tweet" data-media-max-width="440"><a href="https://x.com/tyler_YGG/status/1980971934524305912">The Hidden Swarm Arak video deck guide</a></blockquote></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Aetio -->
+    <article class="deck-block reveal" style="--acc:#22a7ff;">
+      <div class="deck-head">
+        <span class="deck-idx">03</span>
+        <div>
+          <span class="deck-kicker">mad scientist</span>
+          <h2 class="deck-title">aetio</h2>
+          <span class="deck-by">featuring <b>Tyler</b></span>
+        </div>
+      </div>
+      <p class="deck-desc">Build a board with cheap units and play a Kathari unit every turn to feed Aetio's passive, milling your own deck. Keep even with the opponent and finish the game by playing Aetio once your deck is empty.</p>
+      <div class="deck-grid">
+        <figure class="op-figure lb-trigger" data-full="assets/onepager-aetio.jpg" role="button" tabindex="0" aria-label="Enlarge Mad Scientist Aetio one-pager">
+          <span class="acc-bar" aria-hidden="true"></span>
+          <img src="assets/onepager-aetio.jpg" alt="Mad Scientist Aetio one-pager deck guide" loading="lazy">
+          <span class="fade" aria-hidden="true"></span><figcaption><span>One-pager visual guide</span><span>view the full guide ⤢</span></figcaption>
+        </figure>
+        <div class="deck-side">
+          <a class="article-card" href="https://medium.com/@YGGEsports/mad-scientist-aetio-creator-deck-guide-af28d30b303f" target="_blank" rel="noopener">
+            <div class="ac-top"><span class="m">M</span><span class="ac-k">Written guide · Medium</span></div>
+            <div class="ac-body">
+              <span class="ac-title">Mad Scientist Aetio: Creator Deck Guide</span>
+              <span class="ac-ex">The self-mill wincon explained: curve, key cards like The Leviaquin and Magna, and the Triumph of Europa combo lines.</span>
+              <span class="ac-link">Read the full guide on Medium ↗</span>
+            </div>
+          </a>
+          <div class="video-card">
+            <div class="vc-top"><span class="vc-k">Video guide · <b>X</b></span></div>
+            <div class="vc-embed"><blockquote class="twitter-tweet" data-media-max-width="440"><a href="https://x.com/tyler_YGG/status/1978816606248575398">Mad Scientist Aetio video deck guide</a></blockquote></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Gaffar -->
+    <article class="deck-block reveal" style="--acc:#35c46b;">
+      <div class="deck-head">
+        <span class="deck-idx">04</span>
+        <div>
+          <span class="deck-kicker">mobilized rampage</span>
+          <h2 class="deck-title">gaffar</h2>
+          <span class="deck-by">featuring <b>Feno</b></span>
+        </div>
+      </div>
+      <p class="deck-desc">Cheat out big units in the mid-game with Hasty Mobilization by leaning on energy-acceleration cards. Buff them with Gaffar's passive and overwhelm the opponent with stats while disrupting their resources through Pacify effects and energy denial.</p>
+      <div class="deck-grid">
+        <figure class="op-figure lb-trigger" data-full="assets/onepager-gaffar.jpg" role="button" tabindex="0" aria-label="Enlarge Mobilized Rampage Gaffar one-pager">
+          <span class="acc-bar" aria-hidden="true"></span>
+          <img src="assets/onepager-gaffar.jpg" alt="Mobilized Rampage Gaffar one-pager deck guide" loading="lazy">
+          <span class="fade" aria-hidden="true"></span><figcaption><span>One-pager visual guide</span><span>view the full guide ⤢</span></figcaption>
+        </figure>
+        <div class="deck-side">
+          <a class="article-card" href="https://medium.com/@YGGEsports/mobilized-rampage-gaffar-guide-57f609edf610" target="_blank" rel="noopener">
+            <div class="ac-top"><span class="m">M</span><span class="ac-k">Written guide · Medium</span></div>
+            <div class="ac-body">
+              <span class="ac-title">Mobilized Rampage Gaffar: Creator Deck Guide</span>
+              <span class="ac-ex">How to prioritise energy acceleration, land Hasty Mobilization ahead of curve, and snowball with Pacify combos.</span>
+              <span class="ac-link">Read the full guide on Medium ↗</span>
+            </div>
+          </a>
+          <div class="video-card">
+            <div class="vc-top"><span class="vc-k">Video guide · <b>X</b></span></div>
+            <div class="vc-embed"><blockquote class="twitter-tweet" data-media-max-width="440"><a href="https://x.com/tyler_YGG/status/1974449871760626045">Mobilized Rampage Gaffar video deck guide</a></blockquote></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Brand -->
+    <article class="deck-block reveal" style="--acc:#9b5cff;">
+      <div class="deck-head">
+        <span class="deck-idx">05</span>
+        <div>
+          <span class="deck-kicker">beyond the void</span>
+          <h2 class="deck-title">brand</h2>
+          <span class="deck-by">featuring <b>Disi</b></span>
+        </div>
+      </div>
+      <p class="deck-desc">Establish early board presence, control the opponent's units with cheap removal, and then close out the game by stealthing your board to secure the lead you've built.</p>
+      <div class="deck-grid">
+        <figure class="op-figure lb-trigger" data-full="assets/onepager-brand.jpg" role="button" tabindex="0" aria-label="Enlarge Beyond the Void Brand one-pager">
+          <span class="acc-bar" aria-hidden="true"></span>
+          <img src="assets/onepager-brand.jpg" alt="Beyond the Void Brand one-pager deck guide" loading="lazy">
+          <span class="fade" aria-hidden="true"></span><figcaption><span>One-pager visual guide</span><span>view the full guide ⤢</span></figcaption>
+        </figure>
+        <div class="deck-side">
+          <a class="article-card" href="https://medium.com/@YGGEsports/beyond-the-void-brand-b7b5f6962d33" target="_blank" rel="noopener">
+            <div class="ac-top"><span class="m">M</span><span class="ac-k">Written guide · Medium</span></div>
+            <div class="ac-body">
+              <span class="ac-title">Beyond the Void Brand: Creator Deck Guide</span>
+              <span class="ac-ex">The 1-2-3 curve, cheap-removal game plan, and the Snaptrigger Pistol + Beckon the Veil combo to lock in the win.</span>
+              <span class="ac-link">Read the full guide on Medium ↗</span>
+            </div>
+          </a>
+          <div class="video-card">
+            <div class="vc-top"><span class="vc-k">Video guide · <b>X</b></span></div>
+            <div class="vc-embed"><blockquote class="twitter-tweet" data-media-max-width="440"><a href="https://x.com/tyler_YGG/status/1973732510476734563">Beyond the Void Brand video deck guide</a></blockquote></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ LAUNCH PARTY ============ -->
+<section class="band" id="launch">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="num">05</span> — the finale</span>
+      <h2>deception launch party.</h2>
+      <p class="lede">We closed the campaign with a live launch party broadcast on September 30, 2025, with twelve creators playing the new set on release day.</p>
+    </div>
+    <figure class="lp-figure reveal lb-trigger" data-full="assets/launch-party.jpg" role="button" tabindex="0" aria-label="Enlarge launch party graphic">
+      <img src="assets/launch-party.jpg" alt="Deception launch party creator line-up graphic" loading="lazy">
+    </figure>
+    <div class="roster reveal">
+      <div class="r-card"><div class="rn">kohji</div><span class="rh">@paralleltcgpod</span></div>
+      <div class="r-card"><div class="rn">fitch</div><span class="rh">@fitchinverse</span></div>
+      <div class="r-card"><div class="rn">allie</div><span class="rh">@alliestrasza</span></div>
+      <div class="r-card"><div class="rn">sam</div><span class="rh">@samsteffanina</span></div>
+      <div class="r-card"><div class="rn">dub</div><span class="rh">@uhhdub</span></div>
+      <div class="r-card"><div class="rn">airev</div><span class="rh">@parallelairev</span></div>
+      <div class="r-card"><div class="rn">excelsor</div><span class="rh">@excelsorph</span></div>
+      <div class="r-card"><div class="rn">tyler</div><span class="rh">@tyler_YGG</span></div>
+      <div class="r-card"><div class="rn">lambyseries</div><span class="rh">@lambyseriesgg</span></div>
+      <div class="r-card"><div class="rn">mookah</div><span class="rh">@mookah_f</span></div>
+      <div class="r-card host"><div class="rn">feno</div><span class="rh">host · @fenohs</span></div>
+      <div class="r-card host"><div class="rn">iceyyy</div><span class="rh">host · @iceyyy_gaming</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MY ROLE ============ -->
+<section class="band" id="role">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="num">06</span> — ownership</span>
+      <h2>my role.</h2>
+      <p class="lede">This was pitched and closed by me and my team, then delivered end-to-end with our esports players and editor.</p>
+    </div>
+    <div class="role-grid">
+      <div class="role-card reveal"><span class="rk">Strategy</span><h3>pitch &amp; close</h3><p>Built the campaign concept and pitch, and closed the US$20K sponsorship with the partner.</p></div>
+      <div class="role-card reveal"><span class="rk">Production</span><h3>content direction</h3><p>Directed the full content package across five decks: one-pagers, written guides and video guides.</p></div>
+      <div class="role-card reveal"><span class="rk">Coordination</span><h3>creators &amp; team</h3><p>Coordinated creators, esports players and our editor to ship every deliverable on the launch timeline.</p></div>
+      <div class="role-card reveal"><span class="rk">Broadcast</span><h3>launch event</h3><p>Organised the launch-party stream with twelve creators to maximise reach on release day.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="wrap">
+    <div class="reveal">
+      <h2>let's build the next one<span class="accent">.</span></h2>
+      <p class="note">Social media &amp; marketing for web3, gaming &amp; esports · Gabriel Yao.</p>
+      <div class="cta-actions">
+        <a class="btn btn--blaze" href="index.html#contact">Get in touch <span class="arrow">→</span></a>
+        <a class="btn" href="index.html#case">← Back to portfolio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lb" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Close image">Close ✕</button>
+  <img id="lbImg" src="" alt="Enlarged campaign graphic">
+</div>
+
+<script>
+  // scroll reveal
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if(reduce || !('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  })();
+
+  // lightbox
+  (function(){
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lbImg');
+    var lbClose = document.getElementById('lbClose');
+    if(!lb) return;
+    function open(src){ lbImg.src = src; lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+    function close(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; lbImg.src=''; }
+    document.querySelectorAll('.lb-trigger').forEach(function(t){
+      t.addEventListener('click', function(){ open(t.getAttribute('data-full')); });
+      t.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(t.getAttribute('data-full')); } });
+    });
+    lbClose.addEventListener('click', close);
+    lb.addEventListener('click', function(e){ if(e.target===lb) close(); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && lb.classList.contains('open')) close(); });
+  })();
+</script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>
